@@ -1,7 +1,7 @@
 <?php
 
 
-function showStarts(int $count): void
+function showStars(int $count): void
 {
     echo '<p class="mt-5">Merci pour votre notation :';
     $count === '-1' ? $count = '0' : $count;
