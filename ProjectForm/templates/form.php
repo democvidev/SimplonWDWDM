@@ -4,6 +4,8 @@
         <input type="text" 
                class="form-control" 
                name="last_name" 
+               value="<?= isset($_POST['last_name']) ? $_POST['last_name'] : '' ?>"
+               placeholder="Saisir votre nom"
                id="last_name" 
                required>
       </div>
@@ -11,7 +13,9 @@
         <label for="first_name" class="form-label">Prénom</label>
         <input type="text" 
               class="form-control" 
-              name="first_name" 
+              name="first_name"
+              value="<?= isset($_POST['first_name']) ? $_POST['first_name'] : '' ?>" 
+              placeholder="Saisir votre prénom"
               id="first_name" 
               required>
       </div>
@@ -19,7 +23,9 @@
         <label for="tel_number" class="form-label">Numéro de téléphone</label>
         <input type="tel" 
                class="form-control" 
-               name="tel_number" 
+               name="tel_number"
+               value="<?= isset($_POST['tel_number']) ? $_POST['tel_number'] : '' ?>"
+               placeholder="Saisir votre numéro de téléphone"
                id="tel_number" 
                pattern="0[0-7]{1}[0-9]{8}"
                required>
@@ -30,7 +36,7 @@
                class="form-control"
                id="start" 
                name="date_achat"
-               value="2021-05-28"
+               value="<?= date("Y-m-d") ?>"
                min="" 
                max="2021-05-28" >
       </div>  

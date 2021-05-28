@@ -1,21 +1,31 @@
 <?php
 
+// Constantes
+const MAX_NAME_LENGTH = 15;
+const MIN_NAME_LENGTH = 2;
+const MAX_POINTS = 5;
 
-function showStars(int $count): void
+function showStars(): void
 {
-    echo '<p class="mt-5">Merci pour votre notation :';
-    $count === '-1' ? $count = '0' : $count;
-    for ($i = 0; $i < $count; $i++) {
-        echo '⭐';
-    }
-    for ($i = 0; $i < 5 - $count; $i++) {
-        echo '⚫';
+    if (isset($_POST['question3'])) {
+        $count = $_POST['question1'] + $_POST['question2'] + $_POST['question3'];
+        $count === '-1' ? $count = '0' : $count;
+        for ($i = 0; $i < $count; $i++) {
+            echo '⭐';
+        }
+        for ($i = 0; $i < MAX_POINTS - $count; $i++) {
+            echo '⚫';
+        }
     }
 }
 
-function contactUser(string $tel): void
+function showPhoneNumber(string $tel): void
 {
-    echo '        
-        <p>Vous serez rappelé au numéro '. $tel . '</p>
-    ';
+    echo $tel;
+}
+
+function isValidForm(array $array): void
+{    
+    var_dump($array);
+    die;
 }
