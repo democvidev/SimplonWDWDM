@@ -44,7 +44,7 @@
         <input type="date" 
                class="form-control"
                id="start" 
-               name="trip-start"
+               name="date_achat"
                value="2021-05-28"
                min="" 
                max="2021-05-28" >
@@ -111,7 +111,8 @@
                type="radio" 
                value="1" 
                name="question3" 
-               id="flexRadioDefault7">
+               id="flexRadioDefault7" 
+               required>
         <label class="form-check-label" for="flexRadioDefault7">
           Oui
         </label>
@@ -119,7 +120,8 @@
                type="radio" 
                value="-1" 
                name="question3" 
-               id="flexRadioDefault8">
+               id="flexRadioDefault8" 
+               required>
         <label class="form-check-label" for="flexRadioDefault8">
           Non
         </label>
@@ -129,7 +131,7 @@
         <textarea class="form-control" 
                   placeholder="Laisser un commentaire" 
                   id="story" 
-                  name="story"
+                  name="more_story"
                   rows="5" 
                   cols="33">
         </textarea>
@@ -137,12 +139,13 @@
       <div class="col-md-12">
         <input class="form-check-input" 
                type="checkbox" 
-               value="1" 
+               name="call_now"
+               value="yes" 
                id="flexCheckChecked">
         <label class="form-check-label" for="flexCheckChecked">Acceptez vous d'être rappelé</label>
       </div>
       <div class="col-12 d-flex justify-content-end">
-        <button type="submit" class="btn btn-primary">Envoyer</button>
+        <input type="submit" class="btn btn-primary" value="Envoyer"/>
       </div>
     </form>
   </div>
