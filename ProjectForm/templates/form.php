@@ -6,8 +6,16 @@
                name="last_name" 
                value="<?= isset($_POST['last_name']) ? $_POST['last_name'] : '' ?>"
                placeholder="Saisir votre nom"
+               minlength="3"
+               title="Votre nom n'est pas valide"
                id="last_name" 
                required>
+        <small class="small"><?php
+          if (isset($errors)) {
+            foreach ($errors as $key => $value) {
+              if ($key == 'last_name') echo 'Erreur : <span class="small_error">' . $value  . '</span>';
+            }
+        } ?></small>
       </div>
       <div class="col-md-6">
         <label for="first_name" class="form-label">Prénom</label>
@@ -16,8 +24,16 @@
               name="first_name"
               value="<?= isset($_POST['first_name']) ? $_POST['first_name'] : '' ?>" 
               placeholder="Saisir votre prénom"
+              minlength="3"
+              title="Votre prénom n'est pas valide"
               id="first_name" 
               required>
+        <small class="small"><?php
+          if (isset($errors)) {
+            foreach ($errors as $key => $value) {
+              if ($key == 'first_name') echo 'Erreur : <span class="small_error">' . $value  . '</span>';
+            }            
+        } ?></small>
       </div>
       <div class="col-md-6">
         <label for="tel_number" class="form-label">Numéro de téléphone</label>
@@ -26,9 +42,16 @@
                name="tel_number"
                value="<?= isset($_POST['tel_number']) ? $_POST['tel_number'] : '' ?>"
                placeholder="Saisir votre numéro de téléphone"
-               id="tel_number" 
-               pattern="0[0-7]{1}[0-9]{8}"
+               id="tel_number"     
+               pattern="0[1679][0-9]{8}"
+               title="Le numéro de téléphone n'est pas valide"           
                required>
+        <small class="small"><?php
+          if (isset($errors)) {
+            foreach ($errors as $key => $value) {
+              if ($key == 'tel_number') echo 'Erreur : <span class="small_error">' . $value  . '</span>';
+            }            
+        } ?></small>
       </div>
       <div class="col-md-6">
         <label for="start" class="form-label">Date de l'achat</label>
@@ -36,9 +59,9 @@
                class="form-control"
                id="start" 
                name="date_achat"
-               value="<?= date("Y-m-d") ?>"
+               value="<?= isset($_POST['date_achat']) ? $_POST['date_achat'] : date("Y-m-d") ?>"
                min="" 
-               max="2021-05-28" >
+               max="<?= date("Y-m-d") ?>" >
       </div>  
       <div class="col-md-6">
         <p>L'agent a-t-il été agréable ?</p>
@@ -125,6 +148,7 @@
                   name="more_story"
                   rows="5" 
                   cols="33">
+          <?= isset($_POST['more_story']) ? $_POST['more_story'] : '' ?>        
         </textarea>
       </div>
       <div class="col-md-12">
