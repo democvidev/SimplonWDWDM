@@ -92,8 +92,8 @@
                 </div>
                 
                 <!-- Afficher ici le numéro de téléphone qui s'affiche au fur et à mesure de la saisie-->
-                <p>Votre numéro : #numéro de téléphone saisi#</p>
-                <a href="" role="button" class="btn btn-success">Valider</a> <!-- Validation du numéro de téléphone -->  
+                <!--<p>Votre numéro : #numéro de téléphone saisi#</p>-->
+                <input type="submit" value="Valider" class="btn btn-success"> <!-- Validation du numéro de téléphone -->  
                 <a href="?step=5&count=<?= $count ?>" role="button" class="btn btn-warning">Ne pas être rappelé</a>            
             </form>
 
