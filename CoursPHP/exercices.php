@@ -10,7 +10,7 @@ function plusPetitNb(int $a, int $b): void
 {
     echo $a < $b ? $a : $b;
 }
-// plusPetitNb($a, $b);
+plusPetitNb($a, $b);
 
 echo "<hr>";
 
@@ -24,7 +24,7 @@ function tableDeX(int $x): void
         echo '<p>' . $i . ' x ' . $x . ' = ' . $produit;
     }
 }
-// tableDeX($chiffre);
+tableDeX($chiffre);
 
 echo "<hr>";
 
@@ -38,7 +38,7 @@ function reverseCount(int $x): void
         echo $i . ' ';
     }
 }
-// reverseCount($number);
+reverseCount($number);
 
 echo "<hr>";
 
@@ -54,7 +54,7 @@ function lineOfStars(int $x): void
         $i++;
     }
 }
-// lineOfStars($nbStars);
+lineOfStars($nbStars);
 
 echo "<hr>";
 
@@ -72,7 +72,7 @@ function showFigure(int $a, int $b): void
         echo '<br>';
     }
 }
-// showFigure($lat, $long);
+showFigure($lat, $long);
 
 echo "<hr>";
 
@@ -91,11 +91,11 @@ function replaceByUnderscore($sentence)
     }
     return $sentence;
 }
-// echo replaceByUnderscore($phrase);
+echo replaceByUnderscore($phrase);
 echo '<br>';
 // trouver sur google son équivalant clef en main.
 // str_replace() retourne une chaîne ou un tableau, dont toutes les occurrences de search dans subject ont été remplacées par replace.
-// echo str_replace(' ', '_', $phrase);
+echo str_replace(' ', '_', $phrase);
 echo "<hr>";
 
 // Exercice 7 : Ecrire une fonction (utilisant une boucle) qui inverse et affiche l'ordre des lettres d'un mot
@@ -110,11 +110,11 @@ function reverseWord( string $string): string
     }
     return $reversedWord;
 }
-// echo reverseWord($word);
+echo reverseWord($word);
 echo '<br>';
 // trouver sur google son équivalant clef en main.
 // strrev — Inverse une chaîne
-// echo strrev($word);
+echo strrev($word);
 echo "<hr>";
 
 
@@ -144,9 +144,9 @@ function myCamelCase1(string $param) : string
     return $result;
 }
 
-// echo myCamelCase1($sentence);
+echo myCamelCase1($sentence);
 
-
+echo '<br>';
 // Réécrire la fonction en utilisant les fonctions interdites
 function myCamelCase2($param)
 {
