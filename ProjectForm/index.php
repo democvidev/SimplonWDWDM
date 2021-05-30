@@ -1,29 +1,28 @@
 <?php
-require_once('modele/functions.php');
+require_once('services/functions.php');
 
-include('utilities/header.php');
+include('views/templates/header.php');
 
 if ($_POST === []) {
-    include('templates/form.php');
+    include('views/components/form.php');
 }
 
 
-if ($_POST != null) {  
+if ($_POST != null) {
     $datas = [];
     foreach ($_POST as $key => $value) {
         $datas += [$key => validate($value)];
-    }  
-    
-    if (catchError(isValidForm($datas)) !== []) {            
-        $errors = catchError(isValidForm($datas));        
-        include('templates/form.php');
-        exit();
     }
     
+    if (isValidForm($datas) !== []) {
+        $errors = isValidForm($datas);
+        include('views/components/form.php');
+        exit();
+    }
 }
 
-include('utilities/footer.php');
-?>
+include('views/templates/footer.php');
+
 
 
 

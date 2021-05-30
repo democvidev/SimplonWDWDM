@@ -39,21 +39,15 @@ function isValidForm(array $array): array
 {    
     $errorMessage = [];
     foreach ($array as $key => $value) {
-        if ($key == 'last_name' && strlen($value) <= MIN_NAME_LENGTH) {
-            $errorMessage += [ $key => $value];
+        if ($key == 'last_name' && strlen($value) < MIN_NAME_LENGTH) {
+            $errorMessage += [ $key => ' ce champ doit contenir au moins 2 caractères'];
         }
-        if ($key == 'first_name' && strlen($value) <= MIN_NAME_LENGTH) {
-            $errorMessage += [ $key => $value];
+        if ($key == 'first_name' && strlen($value) < MIN_NAME_LENGTH) {
+            $errorMessage += [ $key => ' ce champ doit contenir au moins 2 caractères'];
         }        
         if (($key == 'tel_number') && ((strlen($value) != TELEPHONE) || preg_match(PATERN, $value) != '1')) {
-            $errorMessage += [ $key => $value]; 
+            $errorMessage += [ $key => ' ce champ doit contenir au moins 10 chiffres et le numéro doit être valide']; 
         }
     }
     return $errorMessage;   
-}
-
-
-function catchError(array $array): array
-{
-    return $array;
 }

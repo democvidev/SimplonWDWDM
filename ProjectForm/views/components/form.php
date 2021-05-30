@@ -6,7 +6,7 @@
                name="last_name" 
                value="<?= isset($_POST['last_name']) ? $_POST['last_name'] : '' ?>"
                placeholder="Saisir votre nom"
-               minlength="3"
+               minlength="2"
                title="Votre nom n'est pas valide"
                id="last_name" 
                required>
@@ -24,7 +24,7 @@
               name="first_name"
               value="<?= isset($_POST['first_name']) ? $_POST['first_name'] : '' ?>" 
               placeholder="Saisir votre prénom"
-              minlength="3"
+              minlength="2"
               title="Votre prénom n'est pas valide"
               id="first_name" 
               required>
