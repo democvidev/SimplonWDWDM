@@ -91,17 +91,30 @@ function replaceByUnderscore($sentence)
     }
     return $sentence;
 }
-echo replaceByUnderscore($phrase);
-
+// echo replaceByUnderscore($phrase);
+echo '<br>';
 // trouver sur google son équivalant clef en main.
 // str_replace() retourne une chaîne ou un tableau, dont toutes les occurrences de search dans subject ont été remplacées par replace.
+// echo str_replace(' ', '_', $phrase);
 echo "<hr>";
 
 // Exercice 7 : Ecrire une fonction (utilisant une boucle) qui inverse et affiche l'ordre des lettres d'un mot
 
 // Ecrire le code ici
-
+$word = "originaire";
+function reverseWord( string $string): string 
+{
+    $reversedWord = '';
+    for ($i = strlen($string) - 1; $i >= 0; $i--) {
+        $reversedWord .= $string[$i];
+    }
+    return $reversedWord;
+}
+// echo reverseWord($word);
+echo '<br>';
 // trouver sur google son équivalant clef en main.
+// strrev — Inverse une chaîne
+// echo strrev($word);
 echo "<hr>";
 
 
@@ -112,7 +125,7 @@ echo "<hr>";
 $sentence = "Le cHat est mOrt"; //devient : leChatEstMort
 
 // Ecrire le code ici
-function myCamelCaseFunction(string $param) : string
+function myCamelCase1(string $param) : string
 {
     // Mettre toute la chaîne en minuscules
     $tmp = strtolower($param);
@@ -131,7 +144,12 @@ function myCamelCaseFunction(string $param) : string
     return $result;
 }
 
-// echo myCamelCaseFunction($sentence);
+// echo myCamelCase1($sentence);
 
 
 // Réécrire la fonction en utilisant les fonctions interdites
+function myCamelCase2($param)
+{
+    return lcfirst(str_replace(' ', '', ucwords(strtolower($param))));
+}
+echo myCamelCase2($sentence);
