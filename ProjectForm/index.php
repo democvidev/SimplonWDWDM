@@ -1,11 +1,10 @@
 <?php
 require_once('modele/functions.php');
 
+include('utilities/header.php');
 
 if ($_POST === []) {
-    include('utilities/header.php');
     include('templates/form.php');
-    include('utilities/footer.php');
 }
 
 
@@ -14,7 +13,6 @@ if ($_POST != null) {
     foreach ($_POST as $key => $value) {
         $datas += [$key => validate($value)];
     }  
-    include('utilities/header.php');
     
     if (catchError(isValidForm($datas)) !== []) {            
         $errors = catchError(isValidForm($datas));        
@@ -22,9 +20,9 @@ if ($_POST != null) {
         exit();
     }
     
-    include('utilities/footer.php');
 }
 
+include('utilities/footer.php');
 ?>
 
 
