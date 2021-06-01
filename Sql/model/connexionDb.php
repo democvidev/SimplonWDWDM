@@ -51,3 +51,15 @@ function showPost($id): array
     $req->closeCursor();
     return $row;
 }
+
+function searchPosts($search): array
+{
+    $dbh = connectDb();
+    $query = 'SELECT wp_posts.ID, post_title, LEFT(post_content, 700) AS post_content_tr, post_date FROM wp_posts WHERE post_title LIKE "%' . $search . '%"';
+    $req = $dbh->query($query);
+    $req->setFetchMode(PDO::FETCH_ASSOC);
+    $tab = $req->fetchAll();
+    $req->closeCursor();
+    // var_dump($tab);
+    return $tab;
+}

@@ -7,16 +7,11 @@ require 'service/functions.php';
 include 'views/header.php';
 
 try {
-    if (isset($_GET['id'])) {
-        validate($_GET['id']);
-        $post = showPost($_GET['id']);
-        include 'views/post.php';
-    } else {
-        $tab = showAllPosts();
-        // var_dump($tab);
-        // die;
-        include 'views/allPosts.php';
-    }
+    if (isset($_GET['s'])) {
+        validate($_GET['s']);
+        $tab = searchPosts($_GET['s']);
+        include 'views/searchResults.php';
+    } 
 } catch (PDOException $e) {
     print "Erreur !: " . $e->getMessage() . "<br/>";
     die();
