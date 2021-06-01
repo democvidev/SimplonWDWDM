@@ -10,8 +10,8 @@ try {
     if (isset($_GET['s'])) {
         validate($_GET['s']);
         $tab = searchPosts($_GET['s']);
-        include 'views/searchResults.php';
-    } 
+    }
+    include 'views/searchResults.php';
 } catch (PDOException $e) {
     print "Erreur !: " . $e->getMessage() . "<br/>";
     die();

@@ -52,11 +52,19 @@ function showPost($id): array
     return $row;
 }
 
+// requête préparée contre les injections SQL 
 function searchPosts($search): array
 {
     $dbh = connectDb();
-    $query = 'SELECT wp_posts.ID, post_title, LEFT(post_content, 700) AS post_content_tr, post_date FROM wp_posts WHERE post_title LIKE "%' . $search . '%"';
-    $req = $dbh->query($query);
+    $query = 'SELECT wp_posts.ID, post_title, LEFT(post_content, 700) 
+              AS post_content_tr, post_date 
+              FROM wp_posts 
+              WHERE post_title LIKE :s 
+              OR post_content LIKE :s
+              ORDER BY post_date DESC';
+    $req = $dbh->prepare($query);
+    $req->bindValue(':s', '%' . $search . '%', PDO::PARAM_STR);
+    $req->execute();
     $req->setFetchMode(PDO::FETCH_ASSOC);
     $tab = $req->fetchAll();
     $req->closeCursor();
