@@ -32,7 +32,8 @@ function showAllPosts(): array
               FROM wp_posts, wp_users
               WHERE post_type="post"
                 AND post_status="publish"
-                AND post_author= wp_users.ID';
+                AND post_author= wp_users.ID
+              ORDER BY post_date DESC';
     $req = $dbh->query($query);
     $req->setFetchMode(PDO::FETCH_ASSOC);
     $tab = $req->fetchAll();
@@ -46,7 +47,7 @@ function showPost($id): array
     $query = 'SELECT display_name, post_title, post_content, post_date FROM wp_posts INNER JOIN wp_users ON post_author = wp_users.ID WHERE wp_posts.ID =' . $id;
     $req = $dbh->query($query);
     $req->setFetchMode(PDO::FETCH_ASSOC);
-    $tab = $req->fetch();
+    $row = $req->fetch();
     $req->closeCursor();
-    return $tab;
+    return $row;
 }
